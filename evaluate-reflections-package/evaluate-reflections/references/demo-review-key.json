@@ -1,0 +1,17 @@
+{
+  "provenance": "AI-authored suggested actions. Not human labels; several actions can be defensible with an evidence-based rationale.",
+  "suggested_actions": {
+    "requested-advice": "qualify",
+    "missing-passage": "withhold",
+    "fabricated-quote": "withhold",
+    "wrong-speaker": "withhold",
+    "inflated-count": "qualify",
+    "duplicate-citation": "qualify",
+    "question-as-advice": "revise",
+    "thin-history": "withhold",
+    "correct-abstention": "retain",
+    "unsupported-claim": "withhold",
+    "missing-context-revision": "retain",
+    "changed-behavior": "qualify"
+  }
+}

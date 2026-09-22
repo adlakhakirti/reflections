@@ -1,0 +1,359 @@
+{
+  "schema_version": 1,
+  "provenance": "Handcrafted synthetic transcripts and handcrafted reflection outputs authored by AI for demonstration. Not live model outputs. No human validation. All cases are public development fixtures, not held-out evaluation data.",
+  "cases": [
+    {
+      "id": "requested-advice",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "client",
+              "text": "Please interrupt me with concrete options."
+            },
+            {
+              "id": "p2",
+              "speaker": "coach",
+              "text": "Could you assign one owner?"
+            },
+            {
+              "id": "p3",
+              "speaker": "client",
+              "text": "The sponsor keeps changing the priority."
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "The coach gives unwanted advice.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p2",
+            "speaker": "coach",
+            "quote": "Could you assign one owner?"
+          }
+        ],
+        "declared_session_count": 1
+      }
+    },
+    {
+      "id": "missing-passage",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "coach",
+              "text": "What would help?"
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "The coach interrupted.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p9",
+            "speaker": "coach",
+            "quote": "Stop talking."
+          }
+        ],
+        "declared_session_count": 1
+      }
+    },
+    {
+      "id": "fabricated-quote",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "coach",
+              "text": "What would help?"
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "The coach issued an order.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p1",
+            "speaker": "coach",
+            "quote": "Do it now."
+          }
+        ],
+        "declared_session_count": 1
+      }
+    },
+    {
+      "id": "wrong-speaker",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "client",
+              "text": "I should assign an owner."
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "The coach gave advice.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p1",
+            "speaker": "coach",
+            "quote": "I should assign an owner."
+          }
+        ],
+        "declared_session_count": 1
+      }
+    },
+    {
+      "id": "inflated-count",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "coach",
+              "text": "Could you assign one owner?"
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "This recurred in three sessions.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p1",
+            "speaker": "coach",
+            "quote": "Could you assign one owner?"
+          }
+        ],
+        "declared_session_count": 3
+      }
+    },
+    {
+      "id": "duplicate-citation",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "coach",
+              "text": "Could you assign one owner?"
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "This occurred repeatedly.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p1",
+            "speaker": "coach",
+            "quote": "Could you assign one owner?"
+          },
+          {
+            "session_id": "s1",
+            "passage_id": "p1",
+            "speaker": "coach",
+            "quote": "Could you assign one owner?"
+          }
+        ],
+        "declared_session_count": 1
+      }
+    },
+    {
+      "id": "question-as-advice",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "coach",
+              "text": "Could you freeze scope for Friday?"
+            },
+            {
+              "id": "p2",
+              "speaker": "client",
+              "text": "I have not explained the constraint yet."
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "The coach only asked an exploratory question.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p1",
+            "speaker": "coach",
+            "quote": "Could you freeze scope for Friday?"
+          }
+        ],
+        "declared_session_count": 1
+      }
+    },
+    {
+      "id": "thin-history",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "coach",
+              "text": "Try a checklist."
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "The coach always jumps to solutions.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p1",
+            "speaker": "coach",
+            "quote": "Try a checklist."
+          }
+        ],
+        "declared_session_count": 1
+      }
+    },
+    {
+      "id": "correct-abstention",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "client",
+              "text": "Thanks. See you next time."
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "",
+        "citations": [],
+        "declared_session_count": 0
+      }
+    },
+    {
+      "id": "unsupported-claim",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "client",
+              "text": "Thanks."
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "The client felt safe.",
+        "citations": [],
+        "declared_session_count": 0
+      }
+    },
+    {
+      "id": "missing-context-revision",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "client",
+              "text": "Please interrupt me with concrete options."
+            },
+            {
+              "id": "p2",
+              "speaker": "coach",
+              "text": "Could you assign one owner?"
+            },
+            {
+              "id": "p3",
+              "speaker": "client",
+              "text": "The sponsor keeps changing the priority."
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "Direct advice was requested in this session.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p1",
+            "speaker": "client",
+            "quote": "Please interrupt me with concrete options."
+          }
+        ],
+        "declared_session_count": 1
+      },
+      "previous_claim": "The coach offered unwanted advice."
+    },
+    {
+      "id": "changed-behavior",
+      "sessions": [
+        {
+          "id": "s1",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "coach",
+              "text": "Try a checklist."
+            }
+          ]
+        },
+        {
+          "id": "s2",
+          "passages": [
+            {
+              "id": "p1",
+              "speaker": "coach",
+              "text": "What options have you considered?"
+            }
+          ]
+        }
+      ],
+      "reflection": {
+        "claim": "The coach has permanently improved.",
+        "citations": [
+          {
+            "session_id": "s1",
+            "passage_id": "p1",
+            "speaker": "coach",
+            "quote": "Try a checklist."
+          }
+        ],
+        "declared_session_count": 1
+      },
+      "previous_claim": "The coach offers solutions first."
+    }
+  ]
+}

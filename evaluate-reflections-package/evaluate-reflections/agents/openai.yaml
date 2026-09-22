@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evaluate Reflections"
+  short_description: "Check reflection evidence and review interpretation"
+  default_prompt: "Use $evaluate-reflections to evaluate these reflections against their source transcripts."

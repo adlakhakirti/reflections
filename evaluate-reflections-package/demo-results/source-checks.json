@@ -1,0 +1,145 @@
+{
+  "provenance": "Handcrafted synthetic transcripts and handcrafted reflection outputs authored by AI for demonstration. Not live model outputs. No human validation. All cases are public development fixtures, not held-out evaluation data.",
+  "scope": "Source checks only. PASS does not establish interpretation quality. No product model was called.",
+  "results": [
+    {
+      "case_id": "requested-advice",
+      "source_status": "PASS",
+      "issues": [],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 1,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "missing-passage",
+      "source_status": "FAIL",
+      "issues": [
+        {
+          "code": "MISSING_SOURCE",
+          "reference": "s1/p9"
+        }
+      ],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 0,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "fabricated-quote",
+      "source_status": "FAIL",
+      "issues": [
+        {
+          "code": "QUOTE_MISMATCH",
+          "reference": "s1/p1"
+        }
+      ],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 0,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "wrong-speaker",
+      "source_status": "FAIL",
+      "issues": [
+        {
+          "code": "SPEAKER_MISMATCH",
+          "reference": "s1/p1"
+        }
+      ],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 0,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "inflated-count",
+      "source_status": "FAIL",
+      "issues": [
+        {
+          "code": "SESSION_COUNT_MISMATCH",
+          "declared": 3,
+          "distinct_cited": 1
+        }
+      ],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 1,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "duplicate-citation",
+      "source_status": "FAIL",
+      "issues": [
+        {
+          "code": "DUPLICATE_CITATION",
+          "reference": "s1/p1"
+        }
+      ],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 1,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "question-as-advice",
+      "source_status": "PASS",
+      "issues": [],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 1,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "thin-history",
+      "source_status": "PASS",
+      "issues": [],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 1,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "correct-abstention",
+      "source_status": "PASS",
+      "issues": [],
+      "distinct_cited_sessions": 0,
+      "source_valid_sessions": 0,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "unsupported-claim",
+      "source_status": "FAIL",
+      "issues": [
+        {
+          "code": "UNSOURCED_CLAIM"
+        }
+      ],
+      "distinct_cited_sessions": 0,
+      "source_valid_sessions": 0,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "NOT_TESTED"
+    },
+    {
+      "case_id": "missing-context-revision",
+      "source_status": "PASS",
+      "issues": [],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 1,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "REVIEW_REQUIRED"
+    },
+    {
+      "case_id": "changed-behavior",
+      "source_status": "PASS",
+      "issues": [],
+      "distinct_cited_sessions": 1,
+      "source_valid_sessions": 1,
+      "interpretation_status": "NOT_TESTED",
+      "revision_status": "REVIEW_REQUIRED"
+    }
+  ],
+  "input_sha256": "188382f2de8c204dda02f14583d12d80625a5d6768e0e04ab283a89109e01449"
+}
