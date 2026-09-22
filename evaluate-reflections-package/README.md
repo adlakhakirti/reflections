@@ -1,41 +1,115 @@
-# Evaluate Reflections
+# Reflections
 
-A reusable agent skill that checks reflection outputs against source transcripts and guides an evidence-based interpretation review.
+An agent skill for checking AI-generated reflections against their source evidence.
 
-Built companion to Kirti Adlakha's Substack essay, “Turning a Product Rubric into an Agent Skill.” This package implements the review procedure and offline source checker. It does not implement the coaching reflection model or call a live product.
+A reflection can quote someone correctly and still draw an unsupported conclusion about their behavior. This project separates **source checks** from **interpretation review**, so a valid citation doesn’t get mistaken for a justified claim.
 
-## Try the example
+Created as a companion to Kirti Adlakha’s Substack essay, *Turning a Product Rubric into an Agent Skill*.
 
-From this package directory:
+## What it does
+
+The included Python script checks supplied reflection outputs for:
+
+- Missing source passages.
+- Quotes that don’t match the source.
+- Incorrect speaker attribution.
+- Duplicate citations.
+- Session counts that don’t match the references.
+- Claims without citations.
+
+The agent skill then guides a separate review of context, counterexamples, claim scope, and revisions. Those interpretation findings require human review.
+
+The tool evaluates supplied outputs. It does not generate coaching reflections or connect to a live product.
+
+## An example
+
+A client says:
+
+> “Please interrupt me with concrete options.”
+
+The coach later asks:
+
+> “Could you assign one owner?”
+
+The supplied AI reflection says:
+
+> “The coach gives unwanted advice.”
+
+The quote exists and is attributed correctly, so it passes the source checks. But the client’s earlier request undermines the interpretation that the advice was unwanted.
+
+This distinction is the purpose of the project.
+
+## Run the demo
+
+Download or clone this repository, then open a terminal in its main folder.
+
+You need Python 3. The checker requires no additional packages or API key.
 
 ```sh
 python3 evaluate-reflections/scripts/check_evidence.py --input evaluate-reflections/references/demo-input.json --output my-demo-report
 ```
 
-The demo deliberately includes errors. Exit code 1 and six failing cases are expected. A new directory is required for each report. Python 3 is the only runtime dependency for the checker.
+The demo contains 12 synthetic cases, including deliberately planted errors. Six cases are expected to fail the source checks, and the command returns exit code `1` to indicate those failures.
+
+The output folder contains:
+
+- `source-checks.md`: a readable report.
+- `source-checks.json`: structured results.
+
+Use a new output folder for each run. The checker will not overwrite an existing folder.
+
+You can also inspect the [saved source-check report](demo-results/source-checks.md) and [example interpretation review](demo-results/interpretation-review.md).
+
+## Use the agent skill
 
 Ask your coding assistant:
 
-> Use the evaluate-reflections skill to review the demo transcripts and reflection outputs. Run the source checks, then assess context, scope, counterexamples, and revisions. Keep automated findings separate from interpretation judgments.
+> Read `evaluate-reflections/SKILL.md` and use it to review the demo transcripts and reflection outputs. Run the source checks, then assess context, scope, counterexamples, and revisions. Keep automated findings separate from interpretation judgments.
 
-If the skill isn't discovered, point the assistant at evaluate-reflections/SKILL.md directly.
+For reusable installation, copy the complete `evaluate-reflections` folder into your coding assistant’s skill directory, preserving its scripts and references.
 
-## Install the skill folder
+The skill’s [input contract](evaluate-reflections/references/input-contract.md) explains how to supply your own transcripts and reflection outputs.
 
-Copy the entire evaluate-reflections directory into the target agent's skills folder, preserving its scripts and references. For Claude Code use .claude/skills/ in your project; for Cursor use .cursor/skills/; for Codex use ~/.codex/skills/. Do not replace an existing skill with the same name without checking it first. Discovery/reloading behavior depends on the host.
+## Repository contents
 
-## What's included
+```text
+README.md
+evaluate-reflections/
+├── SKILL.md
+├── agents/
+├── references/
+│   ├── input-contract.md
+│   ├── rubric.md
+│   ├── demo-input.json
+│   └── demo-review-key.json
+└── scripts/
+    └── check_evidence.py
+demo-results/
+├── source-checks.md
+├── source-checks.json
+└── interpretation-review.md
+tests/
+└── test_checker.py
+```
 
-- SKILL.md: the reusable procedure.
-- scripts/check_evidence.py: deterministic source integrity checks.
-- references/: input contract, review rubric, 12 synthetic cases, and AI-authored suggested actions.
-- ../demo-results/: an actually executed source report and an author-assisted interpretation example.
-- ../tests/: automated regression tests for the checker.
+## Tests
 
-## Evidence and limitations
+Run the checker’s automated tests with:
 
-Six unit tests passed, including source error detection, invalid-input rejection, abstention consistency, exit behavior, and overwrite protection. These test the checker, not the product's AI quality. The built-in skill validator could not run because PyYAML is absent in the available Python environments; frontmatter and linked resources were separately checked locally.
+```sh
+python3 -m unittest discover -s tests -v
+```
 
-Demo transcripts, outputs, and suggested judgments are AI-authored fixtures. They are public development examples, not a held-out benchmark. No human labels, model accuracy, judge agreement, or live-system performance is claimed. A source PASS can still require withdrawing or qualifying a claim.
+Six tests passed during development. They cover source-error detection, invalid-input rejection, abstention consistency, command exit behavior, and overwrite protection.
 
-Nothing has been published to GitHub. The zip packages the skill and example evidence for review and sharing.
+These tests verify the checker’s behavior. They do not establish the quality of an AI reflection system.
+
+## Scope and limitations
+
+The demo transcripts, reflection outputs, and suggested judgments are AI-authored synthetic examples. They are public development cases, not a held-out benchmark or independently labeled dataset.
+
+The example interpretation review is AI-assisted and has not been independently validated.
+
+This project does not establish model accuracy, human agreement, coaching outcomes, or live-system performance. A source-check **PASS** can still accompany an interpretation that should be qualified or withdrawn.
+
+The next step is to evaluate actual prototype outputs and review ambiguous cases with an independent human reviewer.
